@@ -55,9 +55,12 @@ function loadItems() {
     if (raw) return JSON.parse(raw);
   } catch (e) { console.warn('Stockage local indisponible.', e); }
   return [
-    { id: 1, name: 'Attaches plastiques (Ty-raps)', qty: 25, low: 5, watch: 15 },
-    { id: 2, name: 'Tape électrique', qty: 2, low: 1, watch: 3 },
-    { id: 3, name: 'Fusibles 15A', qty: 0, low: 1, watch: 3 }
+    { id: 1, name: 'Victor souris', qty: 144, low: 20, watch: 50 },
+    { id: 2, name: 'Bases engluées', qty: 100, low: 15, watch: 40 },
+    { id: 3, name: 'Boîtes noires MM', qty: 50, low: 8, watch: 20 },
+    { id: 4, name: '72TC', qty: 144, low: 20, watch: 50 },
+    { id: 5, name: 'Fluos 25W', qty: 48, low: 8, watch: 20 },
+    { id: 6, name: 'EZ secure', qty: 4, low: 1, watch: 2 }
   ];
 }
 
