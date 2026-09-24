@@ -172,7 +172,7 @@ function renderInventory() {
         <span class="item-name">${escapeHtml(item.name)}</span>
         <div class="qty-controls">
           <button class="qty-btn" data-action="dec">−</button>
-          <span class="qty-value">${item.qty}</span>
+          <input type="number" class="qty-input" min="0" value="${item.qty}" data-action="set-qty" inputmode="numeric">
           <button class="qty-btn" data-action="inc">+</button>
         </div>
       </div>
@@ -298,7 +298,13 @@ document.getElementById('item-list').addEventListener('change', (e) => {
   const action = e.target.dataset.action;
   if (action === 'set-low') setThreshold(id, 'low', e.target.value);
   else if (action === 'set-watch') setThreshold(id, 'watch', e.target.value);
+  else if (action === 'set-qty') setQty(id, e.target.value);
 });
+
+// Sélectionne le contenu du champ quantité au focus, pour remplacer facilement
+document.getElementById('item-list').addEventListener('focus', (e) => {
+  if (e.target.classList.contains('qty-input')) e.target.select();
+}, true);
 
 document.getElementById('manual-needs').addEventListener('click', (e) => {
   const card = e.target.closest('.need-card');

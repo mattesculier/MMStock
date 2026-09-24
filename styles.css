@@ -153,7 +153,19 @@ input {
   font-size: 1.1rem;
   cursor: pointer;
 }
-.qty-value { min-width: 24px; text-align: center; font-weight: 700; }
+.qty-input {
+  width: 46px;
+  padding: 4px 2px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background: var(--bg);
+  color: var(--text);
+}
+.qty-input::-webkit-inner-spin-button,
+.qty-input::-webkit-outer-spin-button { opacity: 0.6; }
 
 .item-bottom {
   display: flex;
