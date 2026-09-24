@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <title>MMStock</title>
+</head>
+<body>
+  <div class="app-container">
+
+    <header class="app-banner">
+      <div class="brand">
+        <img src="logo.png" alt="Logo MMStock" class="brand-logo">
+        <div class="brand-text">
+          <h2>MMStock</h2>
+          <span class="brand-subtitle" data-i18n="subtitle">Inventaire de véhicule</span>
+        </div>
+      </div>
+      <button id="lang-btn" class="lang-btn">EN</button>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="inventory" data-i18n="tabInventory">Inventaire</button>
+      <button class="tab-btn" data-tab="needs" data-i18n="tabNeeds">Besoins</button>
+    </nav>
+
+    <!-- ONGLET INVENTAIRE -->
+    <section id="tab-inventory" class="tab-panel active">
+      <div class="toolbar">
+        <button id="filter-btn" data-i18n="filterUrgent">⚠️ À surveiller</button>
+      </div>
+
+      <form id="add-form">
+        <input type="text" id="item-name" data-i18n-placeholder="addPlaceholder" placeholder="Nom de l'article..." required>
+        <input type="number" id="item-qty" min="0" value="1" class="qty-input-small">
+        <button type="submit" class="btn-add">+</button>
+      </form>
+
+      <main id="item-list" class="list-container"></main>
+    </section>
+
+    <!-- ONGLET BESOINS -->
+    <section id="tab-needs" class="tab-panel">
+      <form id="needs-form">
+        <input type="text" id="need-text" data-i18n-placeholder="needsPlaceholder" placeholder="Ajouter un besoin...">
+        <button type="submit" class="btn-add">+</button>
+      </form>
+
+      <p class="section-label" data-i18n="autoFlagged">Généré automatiquement depuis l'inventaire</p>
+      <div id="auto-needs" class="list-container"></div>
+
+      <p class="section-label" data-i18n="manualNeeds">Mes besoins</p>
+      <div id="manual-needs" class="list-container"></div>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
